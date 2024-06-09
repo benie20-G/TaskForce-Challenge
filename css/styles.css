@@ -1,0 +1,75 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.gallery-container {
+    display: flex;
+    height: 100vh;
+    padding: 0 4em;
+    background: black;
+    gap: 2px;
+}
+
+.gallery-item {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease, filter 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+    filter: grayscale(100%) blur(5px);
+}
+
+.details {
+    position: absolute;
+    top: 18.5em;
+    left: 1.5em;
+    color: white;
+    z-index: 2; /* Ensure details stay on top */
+    transition: top 1s ease;
+}
+
+.details span {
+    font-size: 14px;
+    color: rgb(180, 179, 179);
+    font-weight: normal;
+}
+
+.gallery-item:hover .details {
+    top: 17.5em;
+}
+
+.hover-details {
+    position: absolute;
+    left: 2.2em;
+    top: 33em;
+    color: rgb(2, 191, 163);
+    opacity: 0;
+    transition: opacity 0.6s ease 0.2s; /* Add delay for a smoother transition */
+    text-align: center;
+    z-index: 2; /* Ensure hover details stay on top */
+}
+
+.gallery-item:hover .hover-details {
+    opacity: 1;
+}
+
+/* Media Queries for responsiveness */
+@media screen and (max-width: 768px) {
+    .details, .hover-details {
+        display: none; /* Hide both details and hover details in mobile view */
+    }
+}
